@@ -66,16 +66,27 @@ We get an error here because `else` is a function in R. You also don't want to g
 venom_GT <- 270
 ```
 
+```{r}
+chiron <- 261
+```
+
+```{r}
+veyron <- 268
+```
+
 2. Use arithmetic to calculate the mean top speed for the cars.
 ```{r}
-
+(venom_GT + chiron + veyron)/3
 ```
 
 3. Use the function `mean()` to calculate the mean top speed for the cars.
 ```{r}
-
+x <- c(venom_GT,chiron,veyron)
 ```
 
+```{r}
+mean(x)
+```
 ## Types of Data
 There are five frequently used `classes` of data: 1. numeric, 2. integer, 3. character, 4. logical, 5. complex.
 ```{r}
@@ -129,7 +140,7 @@ new_vector <- c(7, 6.2, 5, 9, NA, 4, 9.8, 7, 3, 2)
 
 2. As we did in homework 1, calculate the mean of `new_vector`.
 ```{r}
-
+mean(new_vector)
 ```
 
 3. How do you interpret this result? What does this mean about NAs?  
