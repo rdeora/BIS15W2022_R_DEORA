@@ -83,7 +83,9 @@ msleep24 %>%
 ## Practice
 1. Which taxonomic orders have species that belong to more than one class of `vore`?
 ```{r}
-
+msleep24 %>% 
+  filter(msleep24, contains(vore)) 
+ 
 ```
 
 ## `summarize()`
@@ -126,7 +128,9 @@ msleep %>%
 ## Practice
 1. What is the mean, min, and max `bodywt` for the taxonomic order Primates? Provide the total number of observations.
 ```{r}
-
+msleep %>% 
+    select(msleep,contains("Primates")) %>% 
+   arrange(bodywt)
 ```
 
 `n_distinct()` is a very handy way of cleanly presenting the number of distinct observations. Here we show the number of distinct genera over 100 in body weight.
