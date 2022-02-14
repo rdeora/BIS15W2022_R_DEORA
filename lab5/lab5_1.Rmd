@@ -2,10 +2,11 @@
 title: "Pipes, `arrange()`, `mutate()`, and `if_else()`"
 date: "`r Sys.Date()`"
 output:
-  html_document:
+  html_document: 
     theme: spacelab
     toc: yes
     toc_float: yes
+    keep_md: yes
   pdf_document:
     toc: yes
 ---
@@ -81,11 +82,6 @@ names(fish)
 
 ## Practice
 1. We are interested in the fish from the lakes "AL" and "AR" with a radii length between 2 and 4. Extract this information from the `fish` data. Use pipes!  
-```{r}
-fish %>%
-  select(lakeid, radii_length_mm) %>%
-  filter(lakeid,between(2,4))
-```
 
 ## `arrange()`
 The `arrange()` command is a bit like a sort command in excel. Note that the default is ascending order.  
@@ -164,6 +160,7 @@ fish %>%
   mutate(length_half = length/2) %>% 
   select(fish_id, length, length_half)
 ```
+
 ```{r}
 names(mammals)
 ```
