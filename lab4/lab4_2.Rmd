@@ -2,10 +2,11 @@
 title: "Transforming data 2: `filter()`"
 date: "`r Sys.Date()`"
 output:
-  html_document:
+  html_document: 
     theme: spacelab
     toc: yes
     toc_float: yes
+    keep_md: yes
   pdf_document:
     toc: yes
 ---
@@ -37,9 +38,7 @@ To keep things tidy, I am going to rename the variables in the mammals data.
 ```{r}
 mammals <- rename(mammals, genus=Genus, wean_mass="wean mass", max_life="max. life", litter_size="litter size", litters_per_year="litters/year")
 ```
-```{r}
-rlang::last_error()
-```
+
 
 ## `filter()`
 Unlike `select()`, `filter()` allows us to extract data that meet specific criteria within a variable. Let's say that we are interested only in the fish that occur in lake "AL". We can use `filter()` to extract these observations.  
@@ -144,15 +143,9 @@ filter(mammals, mass >450000)
 ```
 ```
 
-6. From the `mammals` data, build a data frame that compares `mass`, `gestation`, and `newborn` among the primate genera `Lophocebus`, `Erythrocebus`, and `Macaca`. Among these genera, which species has the smallest `newborn` mass?
-```{r}
-```{r}
-select(mammals, mass, gestation, newborn)
-filter(mammals =Lophocebus)
-```
+6. From the `mammals` data, build a data frame that compares `mass`, `gestation`, and `newborn` among the primate genera `Lophocebus`, `Erythrocebus`, and `Macaca`. Among these genera, which 
 ```
 
-```{r}
 ```{r}
 select(mammals, mass, gestation, newborn)
 ```
