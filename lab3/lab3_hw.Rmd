@@ -25,9 +25,6 @@ library(tidyverse)
 ```
 
 2. Store these data into a new data frame `sleep`.
-```{r}
-sleep <- readr::read_csv("mammals_sleep.csv")
-```
 
 3. What are the dimensions of this data frame (variables and observations)? How do you know? Please show the *code* that you used to determine this below.  
 ```{r}
