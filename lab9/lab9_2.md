@@ -153,18 +153,18 @@ homerange
 
 ```
 ## # A tibble: 569 × 24
-##    taxon  common.name   class   order   family genus species primarymethod N    
-##    <chr>  <chr>         <chr>   <chr>   <chr>  <chr> <chr>   <chr>         <chr>
-##  1 lake … american eel  actino… anguil… angui… angu… rostra… telemetry     16   
-##  2 river… blacktail re… actino… cyprin… catos… moxo… poecil… mark-recaptu… <NA> 
-##  3 river… central ston… actino… cyprin… cypri… camp… anomal… mark-recaptu… 20   
-##  4 river… rosyside dace actino… cyprin… cypri… clin… fundul… mark-recaptu… 26   
-##  5 river… longnose dace actino… cyprin… cypri… rhin… catara… mark-recaptu… 17   
-##  6 river… muskellunge   actino… esocif… esoci… esox  masqui… telemetry     5    
-##  7 marin… pollack       actino… gadifo… gadid… poll… pollac… telemetry     2    
-##  8 marin… saithe        actino… gadifo… gadid… poll… virens  telemetry     2    
-##  9 marin… lined surgeo… actino… percif… acant… acan… lineat… direct obser… <NA> 
-## 10 marin… orangespine … actino… percif… acant… naso  litura… telemetry     8    
+##    taxon        common.name class order family genus species primarymethod N    
+##    <chr>        <chr>       <chr> <chr> <chr>  <chr> <chr>   <chr>         <chr>
+##  1 lake fishes  american e… acti… angu… angui… angu… rostra… telemetry     16   
+##  2 river fishes blacktail … acti… cypr… catos… moxo… poecil… mark-recaptu… <NA> 
+##  3 river fishes central st… acti… cypr… cypri… camp… anomal… mark-recaptu… 20   
+##  4 river fishes rosyside d… acti… cypr… cypri… clin… fundul… mark-recaptu… 26   
+##  5 river fishes longnose d… acti… cypr… cypri… rhin… catara… mark-recaptu… 17   
+##  6 river fishes muskellunge acti… esoc… esoci… esox  masqui… telemetry     5    
+##  7 marine fish… pollack     acti… gadi… gadid… poll… pollac… telemetry     2    
+##  8 marine fish… saithe      acti… gadi… gadid… poll… virens  telemetry     2    
+##  9 marine fish… lined surg… acti… perc… acant… acan… lineat… direct obser… <NA> 
+## 10 marine fish… orangespin… acti… perc… acant… naso  litura… telemetry     8    
 ## # … with 559 more rows, and 15 more variables: mean.mass.g <dbl>,
 ## #   log10.mass <dbl>, alternative.mass.reference <chr>, mean.hra.m2 <dbl>,
 ## #   log10.hra <dbl>, hra.reference <chr>, realm <chr>, thermoregulation <chr>,

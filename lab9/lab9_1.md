@@ -1,6 +1,6 @@
 ---
 title: "Data Visualization: `ggplot` part 1"
-date: "2022-02-15"
+date: "2022-03-14"
 output:
   html_document: 
     theme: spacelab
@@ -131,16 +131,10 @@ homerange <- read_csv(here("lab9", "data", "Tamburelloetal_HomeRangeDatabase.csv
 
 ```
 ## Rows: 569 Columns: 24
-```
-
-```
 ## ── Column specification ────────────────────────────────────────────────────────
 ## Delimiter: ","
 ## chr (16): taxon, common.name, class, order, family, genus, species, primarym...
 ## dbl  (8): mean.mass.g, log10.mass, mean.hra.m2, log10.hra, dimension, preyma...
-```
-
-```
 ## 
 ## ℹ Use `spec()` to retrieve the full column specification for this data.
 ## ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.
