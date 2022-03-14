@@ -1,6 +1,6 @@
 ---
 title: "`summarize()`, `tabyl()`, and `group_by()`"
-date: "2022-02-14"
+date: "2022-03-14"
 output:
   html_document: 
     theme: spacelab
@@ -252,9 +252,35 @@ There are many other useful summary statistics, depending on your needs: sd(), m
 ## Practice
 1. How many genera are represented in the msleep data frame?
 
+```r
+msleep %>% 
+  summarise(n_genera= n_distinct(genus))
+```
+
+```
+## # A tibble: 1 × 1
+##   n_genera
+##      <int>
+## 1       77
+```
+
 
 2. What are the min, max, and mean `sleep_total` for all of the mammals? Be sure to include the total n.
 
+```r
+msleep %>% 
+    summarize(mean_sleep_lg = mean(sleep_total), 
+              min_sleep_lg = min(sleep_total),
+              max_sleep_lg = max(sleep_total),
+              total = n())
+```
+
+```
+## # A tibble: 1 × 4
+##   mean_sleep_lg min_sleep_lg max_sleep_lg total
+##           <dbl>        <dbl>        <dbl> <int>
+## 1          10.4          1.9         19.9    83
+```
 
 ## `group_by()`
 The `summarize()` function is most useful when used in conjunction with `group_by()`. Although producing a summary of body weight for all of the mammals in the data set is helpful, what if we were interested in body weight by feeding ecology?
@@ -282,12 +308,103 @@ msleep %>%
 ## Practice
 1. Calculate mean brain weight by taxonomic order in the msleep data.
 
+```r
+msleep %>%
+  group_by(order) %>% 
+  summarize(mean_brainwt = mean(brainwt))
+```
+
+```
+## # A tibble: 19 × 2
+##    order           mean_brainwt
+##    <chr>                  <dbl>
+##  1 Afrosoricida        0.0026  
+##  2 Artiodactyla       NA       
+##  3 Carnivora          NA       
+##  4 Cetacea            NA       
+##  5 Chiroptera          0.000275
+##  6 Cingulata           0.0459  
+##  7 Didelphimorphia    NA       
+##  8 Diprotodontia      NA       
+##  9 Erinaceomorpha      0.00295 
+## 10 Hyracoidea          0.0152  
+## 11 Lagomorpha          0.0121  
+## 12 Monotremata         0.025   
+## 13 Perissodactyla      0.414   
+## 14 Pilosa             NA       
+## 15 Primates           NA       
+## 16 Proboscidea         5.16    
+## 17 Rodentia           NA       
+## 18 Scandentia          0.0025  
+## 19 Soricomorpha        0.000592
+```
 
 2. What does `NA` mean? How are NA's being treated by the summarize function?
 
+```r
+msleep %>% 
+  group_by(order) %>% 
+  summarize(mean_brainwt = mean(brainwt),
+            n=n())
+```
+
+```
+## # A tibble: 19 × 3
+##    order           mean_brainwt     n
+##    <chr>                  <dbl> <int>
+##  1 Afrosoricida        0.0026       1
+##  2 Artiodactyla       NA            6
+##  3 Carnivora          NA           12
+##  4 Cetacea            NA            3
+##  5 Chiroptera          0.000275     2
+##  6 Cingulata           0.0459       2
+##  7 Didelphimorphia    NA            2
+##  8 Diprotodontia      NA            2
+##  9 Erinaceomorpha      0.00295      2
+## 10 Hyracoidea          0.0152       3
+## 11 Lagomorpha          0.0121       1
+## 12 Monotremata         0.025        1
+## 13 Perissodactyla      0.414        3
+## 14 Pilosa             NA            1
+## 15 Primates           NA           12
+## 16 Proboscidea         5.16         2
+## 17 Rodentia           NA           22
+## 18 Scandentia          0.0025       1
+## 19 Soricomorpha        0.000592     5
+```
 
 3. Try running the code again, but this time add `na.rm=TRUE`. What is the problem with Cetacea? Compare this to Carnivora. 
 
+```r
+msleep %>%
+  group_by(order) %>%
+  summarize(meann_bodywt = mean(bodywt), na.rm= TRUE)
+```
+
+```
+## # A tibble: 19 × 3
+##    order           meann_bodywt na.rm
+##    <chr>                  <dbl> <lgl>
+##  1 Afrosoricida          0.9    TRUE 
+##  2 Artiodactyla        282.     TRUE 
+##  3 Carnivora            57.7    TRUE 
+##  4 Cetacea             342.     TRUE 
+##  5 Chiroptera            0.0165 TRUE 
+##  6 Cingulata            31.8    TRUE 
+##  7 Didelphimorphia       1.03   TRUE 
+##  8 Diprotodontia         1.36   TRUE 
+##  9 Erinaceomorpha        0.66   TRUE 
+## 10 Hyracoidea            3.06   TRUE 
+## 11 Lagomorpha            2.5    TRUE 
+## 12 Monotremata           4.5    TRUE 
+## 13 Perissodactyla      305.     TRUE 
+## 14 Pilosa                3.85   TRUE 
+## 15 Primates             13.9    TRUE 
+## 16 Proboscidea        4600.     TRUE 
+## 17 Rodentia              0.288  TRUE 
+## 18 Scandentia            0.104  TRUE 
+## 19 Soricomorpha          0.0414 TRUE
+```
 
 ## That's it! Take a break and I will see you on Zoom!  
 

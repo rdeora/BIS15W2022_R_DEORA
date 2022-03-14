@@ -133,12 +133,18 @@ There are many other useful summary statistics, depending on your needs: sd(), m
 ## Practice
 1. How many genera are represented in the msleep data frame?
 ```{r}
-
+msleep %>% 
+  summarise(n_genera= n_distinct(genus))
 ```
+
 
 2. What are the min, max, and mean `sleep_total` for all of the mammals? Be sure to include the total n.
 ```{r}
-
+msleep %>% 
+    summarize(mean_sleep_lg = mean(sleep_total), 
+              min_sleep_lg = min(sleep_total),
+              max_sleep_lg = max(sleep_total),
+              total = n())
 ```
 
 ## `group_by()`
@@ -155,16 +161,24 @@ msleep %>%
 ## Practice
 1. Calculate mean brain weight by taxonomic order in the msleep data.
 ```{r}
-
+msleep %>%
+  group_by(order) %>% 
+  summarize(mean_brainwt = mean(brainwt))
 ```
 
 2. What does `NA` mean? How are NA's being treated by the summarize function?
 ```{r}
-
+msleep %>% 
+  group_by(order) %>% 
+  summarize(mean_brainwt = mean(brainwt),
+            n=n())
 ```
 
 3. Try running the code again, but this time add `na.rm=TRUE`. What is the problem with Cetacea? Compare this to Carnivora. 
 ```{r}
+msleep %>%
+  group_by(order) %>%
+  summarize(meann_bodywt = mean(bodywt), na.rm= TRUE)
 
 ```
 
